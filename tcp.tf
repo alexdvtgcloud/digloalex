@@ -15,7 +15,7 @@ resource "google_compute_forwarding_rule" "nuevo21" {
   region                = var.region
   target                = google_compute_target_pool.nuevo.self_link
 }
-# terraform import google_compute_forwarding_rule.nuevo21 projects/pr-sandboxapigee-alex/regions/europe-west1/forwardingRules/nuevo21
+
 resource "google_compute_forwarding_rule" "nuevo2222" {
   ip_address            = google_compute_address.ip_address.self_link
   ip_protocol           = "TCP"
@@ -27,7 +27,7 @@ resource "google_compute_forwarding_rule" "nuevo2222" {
   region                = var.region
   target                = google_compute_target_pool.nuevo.self_link
 }
-# terraform import google_compute_forwarding_rule.nuevo2222 projects/pr-sandboxapigee-alex/regions/europe-west1/forwardingRules/nuevo2222
+
 resource "google_compute_forwarding_rule" "nuevo32768_60999" {
   ip_address            = google_compute_address.ip_address.self_link
   ip_protocol           = "TCP"
@@ -39,7 +39,7 @@ resource "google_compute_forwarding_rule" "nuevo32768_60999" {
   region                = var.region
   target                = google_compute_target_pool.nuevo.self_link
 }
-# terraform import google_compute_forwarding_rule.nuevo32768_60999 projects/pr-sandboxapigee-alex/regions/europe-west1/forwardingRules/nuevo32768-60999
+
 resource "google_compute_forwarding_rule" "nuevo443" {
   ip_address            = google_compute_address.ip_address.self_link
   ip_protocol           = "TCP"
@@ -51,7 +51,7 @@ resource "google_compute_forwarding_rule" "nuevo443" {
   region                = var.region
   target                = google_compute_target_pool.nuevo.self_link
 }
-# terraform import google_compute_forwarding_rule.nuevo443 projects/pr-sandboxapigee-alex/regions/europe-west1/forwardingRules/nuevo443
+
 resource "google_compute_forwarding_rule" "nuevo80" {
   ip_address            = google_compute_address.ip_address.self_link
   ip_protocol           = "TCP"
@@ -63,16 +63,6 @@ resource "google_compute_forwarding_rule" "nuevo80" {
   region                = var.region
   target                = google_compute_target_pool.nuevo.self_link
 }
-/*resource "google_compute_http_health_check" "nuevo" {
-  check_interval_sec  = 5
-  healthy_threshold   = 2
-  name                = "nuevo"
-  port                = 80
-  project             = var.project
-  request_path        = "/"
-  timeout_sec         = 5
-  unhealthy_threshold = 2
-}*/
 
 resource "google_compute_target_pool" "nuevo" {
   instances        = ["europe-west1-b/filemage-app"]

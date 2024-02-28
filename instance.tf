@@ -27,10 +27,4 @@ resource "google_compute_instance" "filemage" {
     scopes = ["https://www.googleapis.com/auth/devstorage.full_control"]
  }
 }
-resource "google_project_iam_binding" "storage_admin_binding" {
-  project = var.project
-  role    = "roles/storage.admin"
 
-  members = ["serviceAccount:${google_service_account.filemageSA.email}"]
-  
-}
