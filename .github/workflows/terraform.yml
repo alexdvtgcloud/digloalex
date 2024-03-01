@@ -21,8 +21,10 @@ jobs:
 
     - name: Set Google Cloud Credentials
       run: |
-        echo ${{ secrets.GCP_SA_KEY }} | base64 --decode > gcp-sa-key.json
+        echo "${{ secrets.GCP_SA_KEY }}" | base64 --decode > gcp-sa-key.json
         export GOOGLE_APPLICATION_CREDENTIALS=gcp-sa-key.json
+        shell: bash
+
 
     - name: Terraform Init
       run: terraform init
